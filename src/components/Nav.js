@@ -64,6 +64,7 @@ const LogoAndMenu = styled.div`
 const Logo = styled.div`
   user-select: none;
   font-size: 40px;
+  cursor: pointer;
 `;
 
 const AtSign = styled.span`

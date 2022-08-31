@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import ProfileImageSrc from "./ProfileImage.jpg";
+import { GiEarthAmerica } from "react-icons/gi";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export default function Main() {
-  // https://unsplash.com/photos/WNoLnJo7tS8
   return (
-    <div>
+    <>
       <MainWrapper>
         <MainImage>
           <MainTitle>
@@ -13,22 +14,51 @@ export default function Main() {
           </MainTitle>
           <Profile>
             <ProfileImage src={ProfileImageSrc} />
-            asdfasdfasdfasdfasdfasdf
+            <ProfileNameAndIcon>
+              <ProfileName>Sagar Jain</ProfileName>
+              <ProfileIcon>
+                <GiEarthAmerica
+                  style={{
+                    marginRight: "19px",
+                  }}
+                />
+                <FaLinkedinIn
+                  style={{
+                    marginRight: "19px",
+                  }}
+                />
+              </ProfileIcon>
+            </ProfileNameAndIcon>
           </Profile>
         </MainImage>
       </MainWrapper>
-      {/* <MainImage src="chess.jpg" /> */}
-    </div>
+    </>
   );
 }
 
+const ProfileIcon = styled.div`
+  margin-top: 4px;
+`;
+
+const ProfileName = styled.div`
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 50%), -1px -1px 2px rgb(0 0 0 / 50%);
+`;
+
+const ProfileNameAndIcon = styled.div`
+  margin-left: 20px;
+  font-size: 20px;
+`;
+
 const ProfileImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 `;
 
 const Profile = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
   color: white;
   width: 1500px;
 `;
@@ -51,7 +81,8 @@ const MainImage = styled.div`
   align-items: center;
   width: 100%;
   height: 570px;
-  background-image: url("https://d2yjqys1j7uhg1.cloudfront.net/images/blog/chess-bishop-moves.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url("https://d2yjqys1j7uhg1.cloudfront.net/images/blog/chess-bishop-moves.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
