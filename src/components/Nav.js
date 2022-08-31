@@ -34,13 +34,15 @@ export default function Nav() {
             return (
               <>
                 <Menu>{menu} &#9660;</Menu>
-                <DropDown>
-                  <DropDown2>{dropdown[i]}</DropDown2>
-                </DropDown>
+
+                {/* {dropdown.map((e, i) => {
+                  return <DropDown>{e[i]}</DropDown>;
+                })} */}
               </>
             );
           })}
           <Menu>Online IDE</Menu>
+          <Login>Login</Login>
         </Menus>
       </LogoAndMenu>
     </Body>
@@ -83,11 +85,25 @@ const Menu = styled.span`
 
 const DropDown = styled.div`
   /* display: none; */
-  display: flex;
-  flex-direction: column;
+  &:hover {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+  }
+
   /* position: absolute; */
   height: 20px;
-  /* background-color: blue; */
 `;
 
-const DropDown2 = styled.div``;
+const DropDown2 = styled.div`
+  height: fit-content;
+  background-color: green;
+`;
+
+const Login = styled.span`
+  background-color: rgb(39, 110, 241);
+  color: white;
+  margin: 0px 5px;
+  padding: 8px;
+  border-radius: 8px;
+`;
