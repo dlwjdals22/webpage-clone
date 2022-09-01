@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import ProfileImageSrc from "./ProfileImage.jpg";
 import { GiEarthAmerica } from "react-icons/gi";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -13,7 +12,10 @@ export default function Main() {
             Bishop on Chessboard - Frontend Machine Coding | HTML, CSS, JS
           </MainTitle>
           <Profile>
-            <ProfileImage src={ProfileImageSrc} />
+            <ProfileImage
+              src={`${process.env.PUBLIC_URL}/images/ProfileImage.jpg`}
+            />
+            {/* <ProfileImage src={ProfileImageSrc} /> */}
             <ProfileNameAndIcon>
               <ProfileName>Sagar Jain</ProfileName>
               <ProfileIcon>
@@ -63,9 +65,7 @@ const Profile = styled.div`
   width: 1500px;
 `;
 
-const MainWrapper = styled.div`
-  overflow: hidden;
-`;
+const MainWrapper = styled.div``;
 
 const MainTitle = styled.div`
   font-size: 55px;

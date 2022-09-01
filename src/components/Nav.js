@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 export default function Nav() {
+  // const navbar = useRef(null);
+  // const headerheight = navbar.clientHeight;
+
+  // console.log(headerheight);
+  const [ScrollY, setScrollY] = useState(0); // window 의 pageYOffset값을 저장
+  const [ScrollActive, setScrollActive] = useState(false);
+
+  useEffect(() => {
+    console.log("asdf");
+  });
+  const scrollFixed = () => {
+    if (ScrollY > 100) {
+      setScrollY(window.pageYOffset);
+      setScrollActive(true);
+    } else {
+      setScrollY(window.pageYOffset);
+      setScrollActive(false);
+    }
+  };
+
   let menu = ["Programs", "Practice", "Resources", "Companies"];
   let dropdown = [
     [
@@ -50,6 +70,9 @@ export default function Nav() {
 }
 
 const Body = styled.div`
+  background-color: white;
+  position: fixed;
+  width: 100%;
   height: fit-content;
 `;
 
@@ -58,7 +81,7 @@ const LogoAndMenu = styled.div`
   justify-content: space-between;
   align-items: center;
   outline: 1px solid black;
-  padding: 25px 4vw;
+  padding: 25px 10vw;
 `;
 
 const Logo = styled.div`
