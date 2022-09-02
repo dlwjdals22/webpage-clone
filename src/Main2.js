@@ -4,6 +4,7 @@ import { BsHeart } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
+import { GiEarthAmerica } from "react-icons/gi";
 
 export default function Main2() {
   let extraImages = [
@@ -11,9 +12,25 @@ export default function Main2() {
     `${process.env.PUBLIC_URL}/images/Main2_extra_2.jpg`,
     `${process.env.PUBLIC_URL}/images/Main2_extra_3.jpg`,
   ];
+
+  let related = [
+    [
+      "https://d2yjqys1j7uhg1.cloudfront.net/images/blog/frontend-star-rating.jpg",
+      "Star Rating Component - Frontend Machine Coding | HTML, CSS, JS",
+    ],
+    [
+      "https://d2yjqys1j7uhg1.cloudfront.net/images/blogs/modal-banner.png",
+      "Create a modal - Frontend Machine Coding | HTML, CSS, JS",
+    ],
+    [
+      "https://d2yjqys1j7uhg1.cloudfront.net/images/blog/nested-comments.jpg",
+      "Nested Comments - Fronted Machine Coding | HTML, CSS, JS",
+    ],
+  ];
+
   return (
     <Body>
-      <Main2_article>
+      <Main2_Article>
         <SocialPart>
           <Gathering>
             <HeartIcon>
@@ -60,16 +77,38 @@ export default function Main2() {
         </ArticlePart>
         <Main2_Bottom>
           <AuthorSection>
-            작가구역작가구역작가구역작가구역작가구역작가구역작가구역작가구역작가구역
+            <ProfilePicture
+              src={`${process.env.PUBLIC_URL}/images/ProfileImage.jpg`}
+            />
+            <ProfileContents>
+              <ProfileName>Sagar Jain</ProfileName>
+              <ProfileContent>
+                Sagar is the co-founder of workat.tech and has previously worked
+                at Uber and Media.net. He is aiming to contribute to the future
+                of tech education through workat.tech.
+              </ProfileContent>
+              <ProfileSocial>
+                <GiEarthAmerica />
+                <FaLinkedinIn />
+              </ProfileSocial>
+            </ProfileContents>
           </AuthorSection>
-          <RelatedContent>
-            릴레이티드컨텐츠 구역릴레이티드컨텐츠 구역릴레이티드컨텐츠
-            구역릴레이티드컨텐츠 구역
-          </RelatedContent>
+          <RelatedSection>
+            <RelatedContentTitle>Related Content</RelatedContentTitle>
+            <RelatedContents>
+              {related.map((e) => {
+                return (
+                  <RelatedContent>
+                    <RelatedImage src={e[0]} />
+                    <RelatedText>{e[1]}</RelatedText>
+                  </RelatedContent>
+                );
+              })}
+            </RelatedContents>
+          </RelatedSection>
         </Main2_Bottom>
-      </Main2_article>
-
-      <Main2_extra>
+      </Main2_Article>
+      <Main2_Extra>
         <Extra_Sticky>
           {extraImages.map((e) => {
             return (
@@ -79,21 +118,101 @@ export default function Main2() {
             );
           })}
         </Extra_Sticky>
-      </Main2_extra>
+      </Main2_Extra>
     </Body>
   );
 }
+const RelatedImage = styled.img`
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+`;
+
+const RelatedText = styled.div`
+  display: flex;
+  text-align: center;
+  font-size: 17px;
+  padding: 25px 10px;
+  margin-top: -10px;
+  margin-bottom: 45px;
+  background-color: rgba(200, 200, 200, 0.2);
+`;
+
+const RelatedContent = styled.div`
+  /* width: 350px; */
+`;
+
+const RelatedContents = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+`;
+
+const RelatedContentTitle = styled.div`
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 25px;
+`;
+
+const ProfileName = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 9px;
+`;
+const ProfileContent = styled.div`
+  font-size: 16px;
+  width: 730px;
+  margin-bottom: 9px;
+  color: gray;
+`;
+const ProfileSocial = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  color: gray;
+  cursor: pointer;
+`;
+
+const ProfilePicture = styled.img`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+`;
+const ProfileContents = styled.div`
+  margin-left: 20px;
+`;
+
 const Main2_Bottom = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: gray;
   grid-column-start: 1;
   grid-column-end: 3;
+  width: 100%;
+  margin-top: 70px;
 `;
-const RelatedContent = styled.section``;
-const AuthorSection = styled.section``;
+const ArticlePart = styled.div`
+  margin-left: 10px;
+`;
+
+const Main2_Article = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 18fr;
+  padding-right: 60px;
+`;
+
+const SocialPart = styled.div`
+  width: 50px;
+`;
+const RelatedSection = styled.section`
+  margin-top: 40px;
+`;
+const AuthorSection = styled.section`
+  display: flex;
+`;
 
 const SocialIcons = styled.div``;
+
 const SocialIcon = styled.div`
   cursor: pointer;
   display: flex;
@@ -111,6 +230,11 @@ const Gathering = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  position: sticky;
+  top: 140px;
+  width: fit-content;
 `;
 const HeartIcon = styled.div`
   cursor: pointer;
@@ -129,9 +253,6 @@ const ArticleContent = styled.div`
   /* padding: 100px; */
 `;
 
-const ArticlePart = styled.div``;
-const SocialPart = styled.div``;
-
 const Extra_Sticky = styled.div`
   position: sticky;
   top: 140px;
@@ -149,28 +270,31 @@ const ImageBox = styled.div`
   height: 250px;
 `;
 
-const Main2_article = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 6fr;
-`;
-
-const Main2_extra = styled.div`
+const Main2_Extra = styled.div`
   margin: 50px;
 `;
 
 const Body = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+  padding-left: 200px;
+  margin: 0 auto;
 `;
 
 const Picture = styled.img`
-  width: 100%;
+  max-width: 100%;
   height: fit-content;
 `;
 
-const Text = styled.div``;
+const Text = styled.div`
+  width: 850px;
+  font-size: 20px;
+  margin: 40px 0;
+`;
 
 const Title = styled.div`
-  font-size: 20px;
+  width: 1000px;
+  font-size: 40px;
   font-weight: bold;
+  margin: 30px 0;
 `;
