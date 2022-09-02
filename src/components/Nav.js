@@ -72,6 +72,7 @@ const Body = styled.div`
   background-color: white;
   position: ${(props) => props.pst};
   width: 100%;
+  z-index: 1;
   /* padding: 130px 0; */
 `;
 
@@ -79,7 +80,8 @@ const LogoAndMenu = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
+  box-shadow: 0 0.1px 20px 0.1px gray;
   padding: 25px 10vw;
 `;
 
