@@ -8,9 +8,18 @@ import { GiEarthAmerica } from "react-icons/gi";
 
 export default function Main2() {
   let extraImages = [
-    `${process.env.PUBLIC_URL}/images/Main2_extra_1.jpg`,
-    `${process.env.PUBLIC_URL}/images/Main2_extra_2.jpg`,
-    `${process.env.PUBLIC_URL}/images/Main2_extra_3.jpg`,
+    [
+      `${process.env.PUBLIC_URL}/images/Main2_extra_1.jpg`,
+      "Practice Data Structures & Algorithms",
+    ],
+    [
+      `${process.env.PUBLIC_URL}/images/Main2_extra_2.jpg`,
+      "Interview Prep Resources",
+    ],
+    [
+      `${process.env.PUBLIC_URL}/images/Main2_extra_3.jpg`,
+      "Join our community",
+    ],
   ];
 
   let related = [
@@ -113,7 +122,8 @@ export default function Main2() {
           {extraImages.map((e) => {
             return (
               <ImageBox>
-                <Image src={e} />
+                <Image src={e[0]} />
+                <ImageText>{e[1]}</ImageText>
               </ImageBox>
             );
           })}
@@ -122,6 +132,17 @@ export default function Main2() {
     </Body>
   );
 }
+
+const ImageText = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  padding: 15px 10px;
+  margin-top: -10px;
+  /* margin-bottom: 45px; */
+  background-color: rgba(200, 200, 200, 0.2);
+`;
 const RelatedImage = styled.img`
   width: 100%;
   height: 190px;
@@ -134,13 +155,10 @@ const RelatedText = styled.div`
   font-size: 17px;
   padding: 25px 10px;
   margin-top: -10px;
-  margin-bottom: 45px;
   background-color: rgba(200, 200, 200, 0.2);
 `;
 
-const RelatedContent = styled.div`
-  /* width: 350px; */
-`;
+const RelatedContent = styled.div``;
 
 const RelatedContents = styled.div`
   display: grid;
@@ -265,9 +283,9 @@ const Image = styled.img`
 `;
 
 const ImageBox = styled.div`
-  margin: 50px;
-  width: 400px;
-  height: 250px;
+  margin: 80px;
+  width: 380px;
+  height: 220px;
 `;
 
 const Main2_Extra = styled.div`
@@ -282,13 +300,19 @@ const Body = styled.div`
 `;
 
 const Picture = styled.img`
-  max-width: 100%;
+  max-width: 1000px;
   height: fit-content;
 `;
 
 const Text = styled.div`
   width: 850px;
-  font-size: 20px;
+  font-size: 25px;
+  margin: 40px 0;
+`;
+
+const Text2 = styled.div`
+  width: 930px;
+  font-size: 25px;
   margin: 40px 0;
 `;
 

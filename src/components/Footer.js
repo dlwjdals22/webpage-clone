@@ -171,6 +171,7 @@ const FooterLinksRow = styled.div`
 const Body = styled.div`
   padding: 30px 200px;
   background-color: rgba(17, 34, 51, 1);
+  margin-top: 50px;
 `;
 
 const FooterMain = styled.div`
