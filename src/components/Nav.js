@@ -2,25 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 export default function Nav() {
-  // const navbar = useRef(null);
-  // const headerheight = navbar.clientHeight;
+  const [navScroll, setNavScroll] = useState(0);
+  const [navPadding, setNavPadding] = useState(0);
 
-  // console.log(headerheight);
-  const [ScrollY, setScrollY] = useState(0); // window 의 pageYOffset값을 저장
-  const [ScrollActive, setScrollActive] = useState(false);
+  function scrollFixed() {
+    setNavScroll(window.pageYOffset);
+  }
 
   useEffect(() => {
-    console.log("asdf");
+    window.addEventListener("scroll", scrollFixed);
+    return () => {
+      window.removeEventListener("scroll", scrollFixed);
+    };
   });
-  const scrollFixed = () => {
-    if (ScrollY > 100) {
-      setScrollY(window.pageYOffset);
-      setScrollActive(true);
-    } else {
-      setScrollY(window.pageYOffset);
-      setScrollActive(false);
-    }
-  };
 
   let menu = ["Programs", "Practice", "Resources", "Companies"];
   let dropdown = [
@@ -44,36 +38,41 @@ export default function Nav() {
   ];
 
   return (
-    <Body>
-      <LogoAndMenu>
-        <Logo>
-          work<AtSign>@</AtSign>tech
-        </Logo>
-        <Menus>
-          {menu.map((menu, i) => {
-            return (
-              <>
-                <Menu>{menu} &#9660;</Menu>
-
-                {/* {dropdown.map((e, i) => {
+    <>
+      <Body pst={navScroll <= 750 ? "none" : "fixed"}>
+        <LogoAndMenu>
+          <Logo>
+            work<AtSign>@</AtSign>tech
+          </Logo>
+          <Menus>
+            {menu.map((menu, i) => {
+              return (
+                <>
+                  <Menu>{menu} &#9660;</Menu>
+                  {/* {dropdown.map((e, i) => {
                   return <DropDown>{e[i]}</DropDown>;
                 })} */}
-              </>
-            );
-          })}
-          <Menu>Online IDE</Menu>
-          <Login>Login</Login>
-        </Menus>
-      </LogoAndMenu>
-    </Body>
+                </>
+              );
+            })}
+            <Menu>Online IDE</Menu>
+            <Login>Login</Login>
+          </Menus>
+        </LogoAndMenu>
+      </Body>
+      <Body2 pd={navScroll <= 750 ? "" : "103px"}></Body2>
+    </>
   );
 }
+const Body2 = styled.div`
+  padding-top: ${(props) => props.pd};
+`;
 
 const Body = styled.div`
   background-color: white;
-  position: fixed;
+  position: ${(props) => props.pst};
   width: 100%;
-  height: fit-content;
+  /* padding: 130px 0; */
 `;
 
 const LogoAndMenu = styled.div`

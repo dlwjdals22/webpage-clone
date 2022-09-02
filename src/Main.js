@@ -69,6 +69,7 @@ const MainWrapper = styled.div``;
 
 const MainTitle = styled.div`
   font-size: 55px;
+  margin-top: 120px;
   text-shadow: 1px 1px 2px rgb(0 0 0 / 50%), -1px -1px 2px rgb(0 0 0 / 50%);
   color: white;
   width: 1500px;
@@ -80,8 +81,8 @@ const MainImage = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 570px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+  height: 700px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
     url("https://d2yjqys1j7uhg1.cloudfront.net/images/blog/chess-bishop-moves.jpg");
   background-size: cover;
   background-position: center;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function Main2() {
   return (
-    <>
+    <Body>
       <Title>
         Create a chess board which highlights the squares being attacked by a
         bishop.
@@ -26,9 +26,11 @@ export default function Main2() {
       </Text>
       <Picture src={`${process.env.PUBLIC_URL}/images/ChessBoard.jpg`} />
       <Text>Implement the above chessboard using HTML, CSS and JS.</Text>
-    </>
+    </Body>
   );
 }
+
+const Body = styled.div``;
 const Picture = styled.img`
   height: 1500px;
   /* background-size: cover; */
