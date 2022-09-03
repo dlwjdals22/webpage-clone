@@ -105,9 +105,9 @@ export default function Main2() {
           <RelatedSection>
             <RelatedContentTitle>Related Content</RelatedContentTitle>
             <RelatedContents>
-              {related.map((e) => {
+              {related.map((e, i) => {
                 return (
-                  <RelatedContent>
+                  <RelatedContent key={i}>
                     <RelatedImage src={e[0]} />
                     <RelatedText>{e[1]}</RelatedText>
                   </RelatedContent>
@@ -119,9 +119,9 @@ export default function Main2() {
       </Main2_Article>
       <Main2_Extra>
         <Extra_Sticky>
-          {extraImages.map((e) => {
+          {extraImages.map((e, i) => {
             return (
-              <ImageBox>
+              <ImageBox key={i}>
                 <Image src={e[0]} />
                 <ImageText>{e[1]}</ImageText>
               </ImageBox>
@@ -134,6 +134,9 @@ export default function Main2() {
 }
 
 const ImageText = styled.div`
+  @media screen and (max-width: 1700px) {
+    padding: 25px 10px;
+  }
   display: flex;
   justify-content: center;
   text-align: center;
@@ -164,7 +167,6 @@ const RelatedContents = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
-  grid-row-gap: 20px;
 `;
 
 const RelatedContentTitle = styled.div`
@@ -211,12 +213,6 @@ const Main2_Bottom = styled.div`
 `;
 const ArticlePart = styled.div`
   margin-left: 10px;
-`;
-
-const Main2_Article = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-right: 20px;
 `;
 
 const SocialPart = styled.div`
@@ -271,11 +267,6 @@ const ArticleContent = styled.div`
   /* padding: 100px; */
 `;
 
-const Extra_Sticky = styled.div`
-  position: sticky;
-  top: 140px;
-`;
-
 const Image = styled.img`
   width: 100%;
   object-fit: cover;
@@ -283,12 +274,42 @@ const Image = styled.img`
 `;
 
 const ImageBox = styled.div`
+  /* @media screen and (max-width: 1700px) {
+  
+} */
+  @media screen and (max-width: 1700px) {
+    width: 340px;
+    height: 190px;
+    object-fit: cover;
+  }
   margin: 80px 0;
   width: 380px;
   height: 220px;
 `;
 
+const Extra_Sticky = styled.div`
+  @media screen and (max-width: 1700px) {
+    /* display: flex;
+    justify-content: center; */
+    width: 1060px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    /* outline: green 1px solid; */
+  }
+  position: sticky;
+  top: 140px;
+`;
+
 const Main2_Extra = styled.div`
+  @media screen and (max-width: 1700px) {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: -50px;
+    /* background-color: red; */
+  }
+
   margin: 50px;
 `;
 
@@ -317,8 +338,25 @@ const Title = styled.div`
 `;
 
 const Body = styled.div`
+  @media screen and (max-width: 1700px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-left: 300px;
+  /* padding-left: 300px; */
   margin: 0 auto;
+`;
+
+const Main2_Article = styled.div`
+  @media screen and (max-width: 1700px) {
+    padding-right: 0;
+    margin-left: 0;
+  }
+  max-width: 1060px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-right: 20px;
+  margin-left: 250px;
 `;

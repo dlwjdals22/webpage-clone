@@ -15,18 +15,19 @@ export default function Main() {
             <ProfileImage
               src={`${process.env.PUBLIC_URL}/images/ProfileImage.jpg`}
             />
-            {/* <ProfileImage src={ProfileImageSrc} /> */}
             <ProfileNameAndIcon>
               <ProfileName>Sagar Jain</ProfileName>
               <ProfileIcon>
                 <GiEarthAmerica
                   style={{
                     marginRight: "19px",
+                    cursor: "pointer",
                   }}
                 />
                 <FaLinkedinIn
                   style={{
                     marginRight: "19px",
+                    cursor: "pointer",
                   }}
                 />
               </ProfileIcon>
@@ -58,6 +59,9 @@ const ProfileImage = styled.img`
 `;
 
 const Profile = styled.div`
+  @media screen and (max-width: 1517px) {
+    width: 100%;
+  }
   display: flex;
   flex-direction: row;
   margin-top: 20px;
@@ -72,7 +76,7 @@ const MainTitle = styled.div`
   margin-top: 120px;
   text-shadow: 1px 1px 2px rgb(0 0 0 / 50%), -1px -1px 2px rgb(0 0 0 / 50%);
   color: white;
-  width: 1500px;
+  max-width: 1500px;
 `;
 
 const MainImage = styled.div`

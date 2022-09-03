@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export default function Nav() {
@@ -50,11 +50,11 @@ export default function Nav() {
           <Menus>
             {menu.map((menu, i) => {
               return (
-                <MenuList>
+                <MenuList key={i}>
                   <Menu>{menu} &#9660;</Menu>
                   <ContentsList>
-                    {dropdown[i].map((e) => {
-                      return <Contents>{e}</Contents>;
+                    {dropdown[i].map((e, j) => {
+                      return <Contents key={j}>{e}</Contents>;
                     })}
                   </ContentsList>
                 </MenuList>
@@ -102,6 +102,9 @@ const AtSign = styled.span`
 `;
 
 const Menus = styled.div`
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
   display: flex;
   align-items: center;
   position: relative;
@@ -122,6 +125,7 @@ const Contents = styled.div`
   text-align: left;
   padding: 0 20px;
   line-height: 44px;
+  user-select: none;
   &:hover {
     background-color: rgb(238, 238, 238);
     color: blue;

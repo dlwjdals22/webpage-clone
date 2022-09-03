@@ -74,8 +74,8 @@ export default function Footer() {
     <Body>
       <FooterMain>
         <FooterPages>
-          {footerpages.map((e) => {
-            return <FooterPage>{e}</FooterPage>;
+          {footerpages.map((e, i) => {
+            return <FooterPage key={i}>{e}</FooterPage>;
           })}
         </FooterPages>
         <FooterMail>
@@ -100,12 +100,14 @@ export default function Footer() {
       {/* ----------------------------------------구분선------------------------------------------ */}
       <hr></hr>
       <FooterLinksRow>
-        {FooterTitle.map((title, i) => {
+        {FooterTitle2.map((title, i) => {
           return (
-            <FooterLinksColumn>
+            <FooterLinksColumn key={i}>
               <FooterLinksColumnTitle>{title}</FooterLinksColumnTitle>
-              {FooterList[i].map((list) => {
-                return <FooterLinksColumnList>{list}</FooterLinksColumnList>;
+              {FooterList2[i].map((list, j) => {
+                return (
+                  <FooterLinksColumnList key={j}>{list}</FooterLinksColumnList>
+                );
               })}
             </FooterLinksColumn>
           );
@@ -116,10 +118,12 @@ export default function Footer() {
       <FooterLinksRow>
         {FooterTitle2.map((title, i) => {
           return (
-            <FooterLinksColumn>
+            <FooterLinksColumn key={i}>
               <FooterLinksColumnTitle>{title}</FooterLinksColumnTitle>
-              {FooterList2[i].map((list) => {
-                return <FooterLinksColumnList>{list}</FooterLinksColumnList>;
+              {FooterList2[i].map((list, j) => {
+                return (
+                  <FooterLinksColumnList key={j}>{list}</FooterLinksColumnList>
+                );
               })}
             </FooterLinksColumn>
           );
@@ -151,6 +155,7 @@ const FooterLinksColumnTitle = styled.div`
   margin: 20px 0;
 `;
 const FooterLinksColumnList = styled.div`
+  user-select: none;
   display: flex;
   justify-content: center;
   margin: 7px 0;
