@@ -3,22 +3,9 @@ import styled from "styled-components";
 
 export default function Nav() {
   const [navScroll, setNavScroll] = useState(0);
-  const [show, setShow] = useState([false, false, false, false]);
 
   function scrollFixed() {
     setNavScroll(window.pageYOffset);
-  }
-
-  function inMouseShow(index) {
-    let newShow = [...show];
-    newShow[index] = true;
-    setShow(newShow);
-  }
-
-  function outMouseShow(index) {
-    let newShow = [...show];
-    newShow[index] = false;
-    setShow(newShow);
   }
 
   useEffect(() => {
@@ -63,19 +50,14 @@ export default function Nav() {
           <Menus>
             {menu.map((menu, i) => {
               return (
-                <>
-                  <Menu
-                    onMouseOver={() => inMouseShow(i)}
-                    onMouseOut={() => outMouseShow(i)}
-                  >
-                    {menu} &#9660;
-                  </Menu>
-                  <DropDownBox move={i}>
+                <MenuList>
+                  <Menu>{menu} &#9660;</Menu>
+                  <ContentsList>
                     {dropdown[i].map((e) => {
-                      return <DropDown show={show[i]}>{e}</DropDown>;
+                      return <Contents>{e}</Contents>;
                     })}
-                  </DropDownBox>
-                </>
+                  </ContentsList>
+                </MenuList>
               );
             })}
             <Menu>Online IDE</Menu>
@@ -121,41 +103,51 @@ const AtSign = styled.span`
 
 const Menus = styled.div`
   display: flex;
+  align-items: center;
   position: relative;
-  outline: 1px solid green;
 `;
 
-const Menu = styled.span`
+const ContentsList = styled.ul`
+  display: none;
+  position: absolute;
+  top: 25px;
+  padding: 0;
+  background-color: rgb(246, 248, 250);
+  &:hover {
+    display: block;
+  }
+`;
+
+const Contents = styled.div`
+  text-align: left;
+  padding: 0 20px;
+  line-height: 44px;
+  &:hover {
+    background-color: rgb(238, 238, 238);
+    color: blue;
+    cursor: pointer;
+  }
+`;
+
+const Menu = styled.div`
   cursor: pointer;
   margin: 0px 14px;
+  padding: 10px 0;
+
+  &:hover + ${ContentsList} {
+    display: block;
+  }
   &:hover {
     color: blue;
   }
-  outline: 1px solid blue;
 `;
 
-const DropDownBox = styled.ul`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 50px;
-  /* transform: translateX(${(props) => props.move}%); */
-  transform: ${(props) => `translateX${props.move * 10}%`};
-  background-color: white;
-`;
-const DropDown = styled.li`
-  /* display: none; */
-  /* position: absolute; */
-  display: ${(props) => (props.show === true ? "block" : "none")};
-  flex-direction: column;
-  /* background-color: green; */
-  outline: 1px black solid;
-  width: fit-content;
-
-  /* height: fit-content; */
-`;
+const MenuList = styled.div``;
 
 const Login = styled.span`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
   background-color: rgb(39, 110, 241);
   color: white;
   margin: 0px 5px;
