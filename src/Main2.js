@@ -215,8 +215,8 @@ const ArticlePart = styled.div`
 
 const Main2_Article = styled.div`
   display: grid;
-  grid-template-columns: 1fr 18fr;
-  padding-right: 60px;
+  grid-template-columns: 1fr 1fr;
+  padding-right: 20px;
 `;
 
 const SocialPart = styled.div`
@@ -283,20 +283,13 @@ const Image = styled.img`
 `;
 
 const ImageBox = styled.div`
-  margin: 80px;
+  margin: 80px 0;
   width: 380px;
   height: 220px;
 `;
 
 const Main2_Extra = styled.div`
   margin: 50px;
-`;
-
-const Body = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  padding-left: 200px;
-  margin: 0 auto;
 `;
 
 const Picture = styled.img`
@@ -321,4 +314,11 @@ const Title = styled.div`
   font-size: 40px;
   font-weight: bold;
   margin: 30px 0;
+`;
+
+const Body = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 300px;
+  margin: 0 auto;
 `;

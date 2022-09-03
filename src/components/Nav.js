@@ -3,10 +3,22 @@ import styled from "styled-components";
 
 export default function Nav() {
   const [navScroll, setNavScroll] = useState(0);
-  const [navPadding, setNavPadding] = useState(0);
+  const [show, setShow] = useState([false, false, false, false]);
 
   function scrollFixed() {
     setNavScroll(window.pageYOffset);
+  }
+
+  function inMouseShow(index) {
+    let newShow = [...show];
+    newShow[index] = true;
+    setShow(newShow);
+  }
+
+  function outMouseShow(index) {
+    let newShow = [...show];
+    newShow[index] = false;
+    setShow(newShow);
   }
 
   useEffect(() => {
@@ -33,6 +45,10 @@ export default function Nav() {
       "Data Structures and Algorithms",
       "Machine Coding Round (LLD)",
       "System Design & Architecture (HLD)",
+      "Backend Development",
+      "Frontend Development",
+      "Project Ideas for Software Developers",
+      "Core Computer Science",
     ],
     ["SDE Jobs & Internships", "Interview Questions", "Compare Companies"],
   ];
@@ -48,10 +64,17 @@ export default function Nav() {
             {menu.map((menu, i) => {
               return (
                 <>
-                  <Menu>{menu} &#9660;</Menu>
-                  {/* {dropdown.map((e, i) => {
-                  return <DropDown>{e[i]}</DropDown>;
-                })} */}
+                  <Menu
+                    onMouseOver={() => inMouseShow(i)}
+                    onMouseOut={() => outMouseShow(i)}
+                  >
+                    {menu} &#9660;
+                  </Menu>
+                  <DropDownBox move={i}>
+                    {dropdown[i].map((e) => {
+                      return <DropDown show={show[i]}>{e}</DropDown>;
+                    })}
+                  </DropDownBox>
                 </>
               );
             })}
@@ -60,12 +83,12 @@ export default function Nav() {
           </Menus>
         </LogoAndMenu>
       </Body>
-      <Body2 pd={navScroll <= 750 ? "" : "103px"}></Body2>
+      <Body2 topPadding={navScroll <= 750 ? "" : "103px"}></Body2>
     </>
   );
 }
 const Body2 = styled.div`
-  padding-top: ${(props) => props.pd};
+  padding-top: ${(props) => props.topPadding};
 `;
 
 const Body = styled.div`
@@ -73,14 +96,12 @@ const Body = styled.div`
   position: ${(props) => props.pst};
   width: 100%;
   z-index: 1;
-  /* padding: 130px 0; */
 `;
 
 const LogoAndMenu = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* outline: 1px solid black; */
   box-shadow: 0 0.1px 20px 0.1px gray;
   padding: 25px 10vw;
 `;
@@ -98,7 +119,11 @@ const AtSign = styled.span`
   border-radius: 50%;
 `;
 
-const Menus = styled.div``;
+const Menus = styled.div`
+  display: flex;
+  position: relative;
+  outline: 1px solid green;
+`;
 
 const Menu = styled.span`
   cursor: pointer;
@@ -106,23 +131,28 @@ const Menu = styled.span`
   &:hover {
     color: blue;
   }
+  outline: 1px solid blue;
 `;
 
-const DropDown = styled.div`
+const DropDownBox = styled.ul`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  /* transform: translateX(${(props) => props.move}%); */
+  transform: ${(props) => `translateX${props.move * 10}%`};
+  background-color: white;
+`;
+const DropDown = styled.li`
   /* display: none; */
-  &:hover {
-    display: flex;
-    flex-direction: column;
-    background-color: green;
-  }
-
   /* position: absolute; */
-  height: 20px;
-`;
+  display: ${(props) => (props.show === true ? "block" : "none")};
+  flex-direction: column;
+  /* background-color: green; */
+  outline: 1px black solid;
+  width: fit-content;
 
-const DropDown2 = styled.div`
-  height: fit-content;
-  background-color: green;
+  /* height: fit-content; */
 `;
 
 const Login = styled.span`
