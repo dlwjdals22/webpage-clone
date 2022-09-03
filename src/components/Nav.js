@@ -6,24 +6,33 @@ export default function Nav() {
   const [navScroll, setNavScroll] = useState(0);
   const [modal, setModal] = useState(false);
 
-  function modalShow() {
-    if (modal === false) setModal(true);
-    else if (modal === true) {
-      document.body.style.overflow = "hidden";
-      setModal(false);
-    }
+  function scrollDisable() {
+    document.body.style.overflow = "hidden";
+    return;
   }
 
-  function scrollFixed() {
+  function scrollEnable() {
+    document.body.style.overflow = "unset";
+    return;
+  }
+
+  function navFixed() {
     setNavScroll(window.pageYOffset);
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollFixed);
+    window.addEventListener("scroll", navFixed);
     return () => {
-      window.removeEventListener("scroll", scrollFixed);
+      window.removeEventListener("scroll", navFixed);
     };
   });
+
+  // useEffect(() => {
+  //   document.body.style.overflow = "hidden";
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, [modal]);
 
   let menu = ["Programs", "Practice", "Resources", "Companies"];
   let dropdown = [
@@ -53,14 +62,32 @@ export default function Nav() {
   return (
     <>
       <Body move={modal} pst={navScroll <= 750 ? "none" : "fixed"}>
-        <ModalBackground show={modal} onClick={() => setModal(false)}>
+        <ModalBackground
+          show={modal}
+          onClick={() => {
+            setModal(false);
+            scrollEnable();
+          }}
+        >
           <Modal show={modal}>
             asd
-            <ModalClose onClick={() => setModal(false)}>X</ModalClose>
+            <ModalClose
+              onClick={() => {
+                setModal(false);
+                scrollEnable();
+              }}
+            >
+              X
+            </ModalClose>
           </Modal>
         </ModalBackground>
         <LogoAndMenu>
-          <Hamburger onClick={() => modalShow()}>
+          <Hamburger
+            onClick={() => {
+              setModal(true);
+              scrollDisable();
+            }}
+          >
             <GiHamburgerMenu />
           </Hamburger>
           <Logo>
