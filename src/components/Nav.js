@@ -4,6 +4,15 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Nav() {
   const [navScroll, setNavScroll] = useState(0);
+  const [modal, setModal] = useState(false);
+
+  function modalShow() {
+    if (modal === false) setModal(true);
+    else if (modal === true) {
+      document.body.style.overflow = "hidden";
+      setModal(false);
+    }
+  }
 
   function scrollFixed() {
     setNavScroll(window.pageYOffset);
@@ -43,9 +52,15 @@ export default function Nav() {
 
   return (
     <>
-      <Body pst={navScroll <= 750 ? "none" : "fixed"}>
+      <Body move={modal} pst={navScroll <= 750 ? "none" : "fixed"}>
+        <ModalBackground show={modal} onClick={() => setModal(false)}>
+          <Modal show={modal}>
+            asd
+            <ModalClose onClick={() => setModal(false)}>X</ModalClose>
+          </Modal>
+        </ModalBackground>
         <LogoAndMenu>
-          <Hamburger>
+          <Hamburger onClick={() => modalShow()}>
             <GiHamburgerMenu />
           </Hamburger>
           <Logo>
@@ -73,6 +88,35 @@ export default function Nav() {
     </>
   );
 }
+const ModalBackground = styled.div`
+  display: ${(props) => (props.show === true ? "block" : "none")};
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+`;
+const Modal = styled.div`
+  display: ${(props) => (props.show === true ? "block" : "none")};
+  /* display: none; */
+  position: fixed;
+  width: 360px;
+  height: 100vh;
+  background-color: white;
+  top: 0;
+  left: 0;
+  z-index: 1;
+`;
+
+const ModalClose = styled.div`
+  font-size: 40px;
+  color: white;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+`;
 
 const Hamburger = styled.div`
   @media screen and (min-width: 1200px) {
@@ -81,6 +125,7 @@ const Hamburger = styled.div`
   margin-left: 15px;
   font-size: 40px;
   display: block;
+  cursor: pointer;
 `;
 
 const Body2 = styled.div`

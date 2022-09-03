@@ -305,9 +305,7 @@ const Main2_Extra = styled.div`
   @media screen and (max-width: 1700px) {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
     margin-top: -50px;
-    /* background-color: red; */
   }
 
   margin: 50px 0;
