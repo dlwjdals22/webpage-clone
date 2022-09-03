@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Nav() {
   const [navScroll, setNavScroll] = useState(0);
@@ -44,6 +45,9 @@ export default function Nav() {
     <>
       <Body pst={navScroll <= 750 ? "none" : "fixed"}>
         <LogoAndMenu>
+          <Hamburger>
+            <GiHamburgerMenu />
+          </Hamburger>
           <Logo>
             work<AtSign>@</AtSign>tech
           </Logo>
@@ -69,6 +73,16 @@ export default function Nav() {
     </>
   );
 }
+
+const Hamburger = styled.div`
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+  margin-left: 15px;
+  font-size: 40px;
+  display: block;
+`;
+
 const Body2 = styled.div`
   padding-top: ${(props) => props.topPadding};
 `;
@@ -81,6 +95,11 @@ const Body = styled.div`
 `;
 
 const LogoAndMenu = styled.div`
+  @media screen and (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: 40px auto 40px;
+    padding: 25px 0;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
