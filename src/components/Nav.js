@@ -70,7 +70,7 @@ export default function Nav() {
 
   return (
     <>
-      <Body move={modal} pst={navScroll <= 750 ? "none" : "fixed"}>
+      <Body pst={navScroll <= 750 ? "none" : "fixed"}>
         <ModalBackground
           show={modal}
           onClick={() => {
@@ -168,6 +168,7 @@ const ModalLogin = styled.div`
   margin: 10px;
   height: 40px;
   border-radius: 7px;
+  /* cursor: pointer; */
 `;
 
 const ModalNav = styled.div`
@@ -186,6 +187,7 @@ const ModalBackground = styled.div`
   width: 100vw;
   height: 100vh;
 `;
+
 const Modal = styled.div`
   display: ${(props) => (props.show === true ? "block" : "none")};
   position: fixed;
