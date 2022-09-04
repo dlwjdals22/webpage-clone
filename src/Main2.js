@@ -299,6 +299,7 @@ const HeartIcon = styled.div`
 `;
 
 const ArticleContent = styled.div`
+  /* max-width: 100%; */
   /* width : 100%; */
   /* padding: 100px; */
 `;
@@ -348,19 +349,14 @@ const Picture = styled.img`
 `;
 
 const Text = styled.div`
-  width: 850px;
-  font-size: 25px;
-  margin: 40px 0;
-`;
-
-const Text2 = styled.div`
-  width: 930px;
+  max-width: 100%;
   font-size: 25px;
   margin: 40px 0;
 `;
 
 const Title = styled.div`
-  width: 1000px;
+  max-width: 100%;
+  /* max-width: 1000px; */
   font-size: 40px;
   font-weight: bold;
   margin: 30px 0;
@@ -375,7 +371,7 @@ const Body = styled.div`
   /* display: flex;
   justify-content: space-around; */
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: auto auto;
   grid-column-gap: 30px;
   padding: 0 210px;
 `;
@@ -395,5 +391,5 @@ const SocialAndArticle = styled.div`
     flex-direction: column-reverse;
   }
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
 `;
