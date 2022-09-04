@@ -145,6 +145,7 @@ const ModalMenu = styled.div`
   display: grid;
   grid-template-columns: 70px auto;
   height: 50px;
+  cursor: pointer;
 `;
 const MenuItemIcon = styled.div`
   display: flex;
