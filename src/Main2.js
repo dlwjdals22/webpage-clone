@@ -169,12 +169,15 @@ const RelatedText = styled.div`
   background-color: rgba(200, 200, 200, 0.2);
 `;
 
-const RelatedContent = styled.div``;
+const RelatedContent = styled.div`
+  /* min-width: 100%; */
+`;
 
 const RelatedContents = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
+  width: 975px;
 `;
 
 const RelatedContentTitle = styled.div`
@@ -190,7 +193,7 @@ const ProfileName = styled.div`
 `;
 const ProfileContent = styled.div`
   font-size: 16px;
-  width: 730px;
+  max-width: 730px;
   margin-bottom: 9px;
   color: gray;
 `;
@@ -214,13 +217,11 @@ const ProfileContents = styled.div`
 const Main2_Bottom = styled.div`
   display: flex;
   flex-direction: column;
-  grid-column-start: 1;
-  grid-column-end: 3;
   width: 100%;
   margin-top: 70px;
 `;
+
 const ArticlePart = styled.div`
-  /* width: 100%; */
   margin-left: 10px;
 `;
 
@@ -312,7 +313,7 @@ const Image = styled.img`
 
 const ImageBox = styled.div`
   @media screen and (max-width: 1700px) {
-    width: 340px;
+    width: 311px;
     height: 190px;
     object-fit: cover;
   }
@@ -323,9 +324,9 @@ const ImageBox = styled.div`
 
 const Extra_Sticky = styled.div`
   @media screen and (max-width: 1700px) {
-    width: 1060px;
+    max-width: 975px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
     grid-column-gap: 20px;
   }
   position: sticky;
@@ -334,8 +335,6 @@ const Extra_Sticky = styled.div`
 
 const Main2_Extra = styled.div`
   @media screen and (max-width: 1700px) {
-    display: flex;
-    justify-content: center;
     margin-top: -50px;
   }
 
@@ -363,10 +362,14 @@ const Title = styled.div`
 `;
 
 const Body = styled.div`
+  @media screen and (max-width: 1200px) {
+    padding: 0;
+  }
   @media screen and (max-width: 1700px) {
     display: flex;
+
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
   }
   /* display: flex;
   justify-content: space-around; */
@@ -380,6 +383,7 @@ const Main2_Article = styled.div`
   @media screen and (max-width: 1700px) {
     padding-right: 0;
     margin-left: 0;
+    max-width: 100%;
   }
   max-width: 1060px;
   /* display: grid; */

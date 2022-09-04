@@ -72,6 +72,9 @@ const Profile = styled.div`
 const MainWrapper = styled.div``;
 
 const MainTitle = styled.div`
+  @media screen and (max-width: 1200px) {
+    font-size: 44px;
+  }
   font-size: 55px;
   margin-top: 120px;
   text-shadow: 1px 1px 2px rgb(0 0 0 / 50%), -1px -1px 2px rgb(0 0 0 / 50%);
