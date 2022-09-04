@@ -206,6 +206,9 @@ const RelatedContents = styled.div`
 `;
 
 const RelatedContentTitle = styled.div`
+  @media screen and (max-width: 1000px) {
+    font-size: 25px;
+  }
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 25px;

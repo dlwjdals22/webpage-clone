@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { TbBuildingCastle } from "react-icons/tb";
+import { FaBook } from "react-icons/fa";
+import { TiDeviceDesktop } from "react-icons/ti";
+import { FaTerminal } from "react-icons/fa";
+import { FaChartPie } from "react-icons/fa";
+import { BsFillBagPlusFill } from "react-icons/bs";
 
 export default function Nav() {
   const [navScroll, setNavScroll] = useState(0);
@@ -27,6 +33,15 @@ export default function Nav() {
       window.removeEventListener("scroll", navFixed);
     };
   });
+
+  let modalIcon = [
+    { icon: <TbBuildingCastle />, text: "Programs" },
+    { icon: <FaBook />, text: "Resources" },
+    { icon: <TiDeviceDesktop />, text: "Practice" },
+    { icon: <FaTerminal />, text: "Online IDE" },
+    { icon: <FaChartPie />, text: "Compare Companies" },
+    { icon: <BsFillBagPlusFill />, text: "Jobs" },
+  ];
 
   let menu = ["Programs", "Practice", "Resources", "Companies"];
   let dropdown = [
@@ -64,7 +79,22 @@ export default function Nav() {
           }}
         >
           <Modal show={modal}>
-            asd
+            <ModalNav>
+              <Logo2>
+                work<AtSign>@</AtSign>tech
+              </Logo2>
+            </ModalNav>
+            <ModalLogin>Login</ModalLogin>
+            <ModalList>
+              {modalIcon.map((el, i) => {
+                return (
+                  <ModalMenu key={i}>
+                    <MenuItemIcon>{el.icon}</MenuItemIcon>
+                    <MenuItemText>{el.text}</MenuItemText>
+                  </ModalMenu>
+                );
+              })}
+            </ModalList>
             <ModalClose
               onClick={() => {
                 setModal(false);
@@ -109,6 +139,43 @@ export default function Nav() {
     </>
   );
 }
+
+const ModalList = styled.div``;
+const ModalMenu = styled.div`
+  display: grid;
+  grid-template-columns: 70px auto;
+  height: 50px;
+`;
+const MenuItemIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+`;
+const MenuItemText = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+`;
+
+const ModalLogin = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgb(39, 110, 241);
+  margin: 10px;
+  height: 40px;
+  border-radius: 7px;
+`;
+
+const ModalNav = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100px;
+`;
 const ModalBackground = styled.div`
   display: ${(props) => (props.show === true ? "block" : "none")};
   position: fixed;
@@ -122,7 +189,8 @@ const Modal = styled.div`
   display: ${(props) => (props.show === true ? "block" : "none")};
   /* display: none; */
   position: fixed;
-  width: 360px;
+  width: 70%;
+  max-width: 460px;
   height: 100vh;
   background-color: white;
   top: 0;
@@ -171,6 +239,13 @@ const LogoAndMenu = styled.div`
   align-items: center;
   box-shadow: 0 0.1px 20px 0.1px gray;
   padding: 25px 10vw;
+`;
+
+const Logo2 = styled.div`
+  user-select: none;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
 `;
 
 const Logo = styled.div`
