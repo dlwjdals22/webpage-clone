@@ -98,7 +98,7 @@ export default function Footer() {
         </FooterSocial>
       </FooterMain>
       {/* ----------------------------------------구분선------------------------------------------ */}
-      <hr></hr>
+      <HR></HR>
       <FooterLinksRow>
         {FooterTitle.map((title, i) => {
           return (
@@ -114,7 +114,7 @@ export default function Footer() {
         })}
       </FooterLinksRow>
       {/* ----------------------------------------구분선------------------------------------------ */}
-      <hr></hr>
+      <HR></HR>
       <FooterLinksRow>
         {FooterTitle2.map((title, i) => {
           return (
@@ -130,9 +130,9 @@ export default function Footer() {
         })}
       </FooterLinksRow>
       {/* ----------------------------------------구분선------------------------------------------ */}
-      <hr></hr>
+      <HR2></HR2>
       <FooterCopyright>
-        © 2020-2022 WORKATTECH TECHNOLOGIES PVT LTD | ALL RIGHTS RESERVED{" "}
+        © 2020-2022 WORKATTECH TECHNOLOGIES PVT LTD | ALL RIGHTS RESERVED
       </FooterCopyright>
     </Body>
   );
@@ -142,6 +142,7 @@ const FooterCopyright = styled.div`
   color: white;
   display: flex;
   justify-content: center;
+  text-align: center;
 `;
 
 const FooterLinksColumn = styled.div`
@@ -167,6 +168,10 @@ const FooterLinksColumnList = styled.div`
 `;
 
 const FooterLinksRow = styled.div`
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+  }
   color: white;
   width: 100%;
   display: grid;
@@ -174,12 +179,27 @@ const FooterLinksRow = styled.div`
 `;
 
 const Body = styled.div`
+  @media screen and (max-width: 1700px) {
+    padding: 30px 150px;
+  }
+  @media screen and (max-width: 1200px) {
+    padding: 30px 100px;
+  }
+  @media screen and (max-width: 1000px) {
+    padding: 30px 20px;
+  }
   padding: 30px 200px;
   background-color: rgba(17, 34, 51, 1);
   margin-top: 50px;
 `;
 
 const FooterMain = styled.div`
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   /* justify-content: space-between; */
@@ -188,6 +208,10 @@ const FooterMain = styled.div`
 `;
 
 const FooterPages = styled.div`
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    justify-content: space-around;
+  }
   display: flex;
 `;
 
@@ -199,6 +223,9 @@ const FooterSocial = styled.div`
 `;
 
 const FooterMail = styled.div`
+  @media screen and (max-width: 1000px) {
+    margin: 20px 0;
+  }
   display: flex;
   justify-content: center;
   font-size: 17px;
@@ -216,9 +243,21 @@ const MailAdress = styled.div`
 `;
 
 const FooterPage = styled.div`
+  @media screen and (max-width: 1000px) {
+    margin: 0;
+  }
   margin-right: 40px;
   &:hover {
     cursor: pointer;
     text-decoration: underline;
   }
+`;
+
+const HR = styled.hr`
+  @media screen and (max-width: 1000px) {
+    border: 0;
+  }
+`;
+const HR2 = styled.hr`
+  width: 100%;
 `;
