@@ -153,15 +153,11 @@ const ImageText = styled.div`
   font-size: 17px;
   padding: 15px 10px;
   margin-top: -10px;
-  /* margin-bottom: 45px; */
   background-color: rgba(200, 200, 200, 0.2);
 `;
 const RelatedImage = styled.img`
   @media screen and (max-width: 1000px) {
-    /* object-fit: none; */
-    /* max-width: 100%; */
     width: 100%;
-    /* min-height: 35rem; */
     height: 100%;
   }
   width: 100%;
@@ -185,19 +181,14 @@ const RelatedContent = styled.div`
     height: auto;
     margin-bottom: 20px;
   }
-
-  /* min-width: 100%; */
 `;
 
 const RelatedContents = styled.div`
   @media screen and (max-width: 1000px) {
     display: flex;
     flex-direction: column;
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
     width: 100%;
     height: 100%;
-    /* object-fit: cover; */
   }
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -265,8 +256,6 @@ const SocialIcons = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 20px;
-    /* display: flex;
-    flex-direction: row; */
   }
 `;
 
@@ -294,7 +283,6 @@ const Gathering = styled.div`
   @media screen and (max-width: 1200px) {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
     flex-direction: row;
     width: 100%;
     position: static;
@@ -327,11 +315,7 @@ const HeartIcon = styled.div`
   height: 40px;
 `;
 
-const ArticleContent = styled.div`
-  /* max-width: 100%; */
-  /* width : 100%; */
-  /* padding: 100px; */
-`;
+const ArticleContent = styled.div``;
 
 const Image = styled.img`
   width: 100%;
@@ -384,7 +368,6 @@ const Main2_Extra = styled.div`
 
 const Picture = styled.img`
   max-width: 100%;
-  /* object-fit: cover; */
   height: fit-content;
 `;
 
@@ -396,7 +379,6 @@ const Text = styled.div`
 
 const Title = styled.div`
   max-width: 100%;
-  /* max-width: 1000px; */
   font-size: 40px;
   font-weight: bold;
   margin: 30px 0;
@@ -408,12 +390,8 @@ const Body = styled.div`
   }
   @media screen and (max-width: 1700px) {
     display: flex;
-
     flex-direction: column;
-    /* align-items: center; */
   }
-  /* display: flex;
-  justify-content: space-around; */
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: 30px;
@@ -427,7 +405,6 @@ const Main2_Article = styled.div`
     max-width: 100%;
   }
   max-width: 1060px;
-  /* display: grid; */
 `;
 
 const SocialAndArticle = styled.div`
@@ -443,7 +420,6 @@ const RelatedImageBox = styled.div`
   @media screen and (max-width: 1000px) {
     height: 500px;
     width: 100%;
-    /* outline: 1px solid blue; */
     overflow: hidden;
   }
 `;

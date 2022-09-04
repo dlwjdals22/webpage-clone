@@ -202,7 +202,6 @@ const FooterMain = styled.div`
   }
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
-  /* justify-content: space-between; */
   color: white;
   margin: 20px 0 50px 0;
 `;

@@ -187,7 +187,6 @@ const ModalBackground = styled.div`
 `;
 const Modal = styled.div`
   display: ${(props) => (props.show === true ? "block" : "none")};
-  /* display: none; */
   position: fixed;
   width: 70%;
   max-width: 460px;
