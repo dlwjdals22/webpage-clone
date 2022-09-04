@@ -18,6 +18,7 @@ export default function Nav() {
 
   function navFixed() {
     setNavScroll(window.pageYOffset);
+    return;
   }
 
   useEffect(() => {
@@ -26,13 +27,6 @@ export default function Nav() {
       window.removeEventListener("scroll", navFixed);
     };
   });
-
-  // useEffect(() => {
-  //   document.body.style.overflow = "hidden";
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, [modal]);
 
   let menu = ["Programs", "Practice", "Resources", "Companies"];
   let dropdown = [

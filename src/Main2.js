@@ -40,50 +40,58 @@ export default function Main2() {
   return (
     <Body>
       <Main2_Article>
-        <SocialPart>
-          <Gathering>
-            <HeartIcon>
-              <BsHeart />
-            </HeartIcon>
-            <SocialIcons>
-              <SocialIcon>
-                <FaLinkedinIn />
-              </SocialIcon>
-              <SocialIcon>
-                <FaFacebookF />
-              </SocialIcon>
-              <SocialIcon>
-                <AiOutlineTwitter />
-              </SocialIcon>
-            </SocialIcons>
-          </Gathering>
-        </SocialPart>
-        <ArticlePart>
-          <ArticleContent>
-            <Title>
-              Create a chess board which highlights the squares being attacked
-              by a bishop.
-            </Title>
-            <Text>
-              Display a chessboard on your webpage. Below is an example of what
-              a chessboard looks like.
-            </Text>
-            <Picture src={`${process.env.PUBLIC_URL}/images/ChessBoard.jpg`} />
-            <Text>
-              When the user hovers on any square of the chessboard:
-              <ul>
-                <li>Change the color of the square to light blue.</li>
-                <li>
-                  Change the color of the squares that would be attacked by a
-                  bishop to dark blue. A bishop attacks along its diagonals.
-                </li>
-              </ul>
-              An example of hover state is shown below.
-            </Text>
-            <Picture src={`${process.env.PUBLIC_URL}/images/ChessBoard.jpg`} />
-            <Text>Implement the above chessboard using HTML, CSS and JS.</Text>
-          </ArticleContent>
-        </ArticlePart>
+        <SocialAndArticle>
+          <SocialPart>
+            <Gathering>
+              <HeartIcon>
+                <BsHeart />
+              </HeartIcon>
+              <SocialIcons>
+                <SocialIcon>
+                  <FaLinkedinIn />
+                </SocialIcon>
+                <SocialIcon>
+                  <FaFacebookF />
+                </SocialIcon>
+                <SocialIcon>
+                  <AiOutlineTwitter />
+                </SocialIcon>
+              </SocialIcons>
+            </Gathering>
+          </SocialPart>
+          <ArticlePart>
+            <ArticleContent>
+              <Title>
+                Create a chess board which highlights the squares being attacked
+                by a bishop.
+              </Title>
+              <Text>
+                Display a chessboard on your webpage. Below is an example of
+                what a chessboard looks like.
+              </Text>
+              <Picture
+                src={`${process.env.PUBLIC_URL}/images/ChessBoard.jpg`}
+              />
+              <Text>
+                When the user hovers on any square of the chessboard:
+                <ul>
+                  <li>Change the color of the square to light blue.</li>
+                  <li>
+                    Change the color of the squares that would be attacked by a
+                    bishop to dark blue. A bishop attacks along its diagonals.
+                  </li>
+                </ul>
+                An example of hover state is shown below.
+              </Text>
+              <Picture
+                src={`${process.env.PUBLIC_URL}/images/ChessBoard.jpg`}
+              />
+              <Text>
+                Implement the above chessboard using HTML, CSS and JS.
+              </Text>
+            </ArticleContent>
+          </ArticlePart>
+        </SocialAndArticle>
         <Main2_Bottom>
           <AuthorSection>
             <ProfilePicture
@@ -212,12 +220,10 @@ const Main2_Bottom = styled.div`
   margin-top: 70px;
 `;
 const ArticlePart = styled.div`
+  /* width: 100%; */
   margin-left: 10px;
 `;
 
-const SocialPart = styled.div`
-  width: 50px;
-`;
 const RelatedSection = styled.section`
   margin-top: 40px;
 `;
@@ -225,7 +231,15 @@ const AuthorSection = styled.section`
   display: flex;
 `;
 
-const SocialIcons = styled.div``;
+const SocialIcons = styled.div`
+  @media screen and (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    /* display: flex;
+    flex-direction: row; */
+  }
+`;
 
 const SocialIcon = styled.div`
   cursor: pointer;
@@ -240,7 +254,24 @@ const SocialIcon = styled.div`
   height: 40px;
 `;
 
+const SocialPart = styled.div`
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+  }
+  width: 50px;
+`;
+
 const Gathering = styled.div`
+  @media screen and (max-width: 1200px) {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    flex-direction: row;
+    width: 100%;
+    position: static;
+    margin: 0;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -251,6 +282,10 @@ const Gathering = styled.div`
   width: fit-content;
 `;
 const HeartIcon = styled.div`
+  @media screen and (max-width: 1200px) {
+    margin: 0;
+  }
+
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -264,6 +299,7 @@ const HeartIcon = styled.div`
 `;
 
 const ArticleContent = styled.div`
+  /* width : 100%; */
   /* padding: 100px; */
 `;
 
@@ -274,9 +310,6 @@ const Image = styled.img`
 `;
 
 const ImageBox = styled.div`
-  /* @media screen and (max-width: 1700px) {
-  
-} */
   @media screen and (max-width: 1700px) {
     width: 340px;
     height: 190px;
@@ -289,13 +322,10 @@ const ImageBox = styled.div`
 
 const Extra_Sticky = styled.div`
   @media screen and (max-width: 1700px) {
-    /* display: flex;
-    justify-content: center; */
     width: 1060px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 20px;
-    /* outline: green 1px solid; */
   }
   position: sticky;
   top: 140px;
@@ -312,7 +342,8 @@ const Main2_Extra = styled.div`
 `;
 
 const Picture = styled.img`
-  max-width: 1000px;
+  max-width: 100%;
+  /* object-fit: cover; */
   height: fit-content;
 `;
 
@@ -355,6 +386,14 @@ const Main2_Article = styled.div`
     margin-left: 0;
   }
   max-width: 1060px;
+  /* display: grid; */
+`;
+
+const SocialAndArticle = styled.div`
+  @media screen and (max-width: 1200px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
   display: grid;
-  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 1fr 1fr;
 `;
