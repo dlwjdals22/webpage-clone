@@ -116,7 +116,9 @@ export default function Main2() {
               {related.map((e, i) => {
                 return (
                   <RelatedContent key={i}>
-                    <RelatedImage src={e[0]} />
+                    <RelatedImageBox>
+                      <RelatedImage src={e[0]} />
+                    </RelatedImageBox>
                     <RelatedText>{e[1]}</RelatedText>
                   </RelatedContent>
                 );
@@ -155,6 +157,13 @@ const ImageText = styled.div`
   background-color: rgba(200, 200, 200, 0.2);
 `;
 const RelatedImage = styled.img`
+  @media screen and (max-width: 1000px) {
+    /* object-fit: none; */
+    /* max-width: 100%; */
+    width: 100%;
+    /* min-height: 35rem; */
+    height: 100%;
+  }
   width: 100%;
   height: 190px;
   object-fit: cover;
@@ -162,6 +171,7 @@ const RelatedImage = styled.img`
 
 const RelatedText = styled.div`
   display: flex;
+  justify-content: center;
   text-align: center;
   font-size: 17px;
   padding: 25px 10px;
@@ -170,10 +180,25 @@ const RelatedText = styled.div`
 `;
 
 const RelatedContent = styled.div`
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
   /* min-width: 100%; */
 `;
 
 const RelatedContents = styled.div`
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+  }
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
@@ -312,10 +337,16 @@ const Image = styled.img`
 `;
 
 const ImageBox = styled.div`
-  @media screen and (max-width: 1700px) {
+  @media screen and (max-width: 1700px) and (min-width: 1000px) {
     width: 311px;
     height: 190px;
     object-fit: cover;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    height: 70%;
+    margin: 10px 0;
   }
   margin: 80px 0;
   width: 380px;
@@ -323,7 +354,14 @@ const ImageBox = styled.div`
 `;
 
 const Extra_Sticky = styled.div`
-  @media screen and (max-width: 1700px) {
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    margin-top: 30px;
+  }
+
+  @media screen and (max-width: 1700px) and (min-width: 1000px) {
     max-width: 975px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -396,4 +434,13 @@ const SocialAndArticle = styled.div`
   }
   display: grid;
   grid-template-columns: auto 1fr;
+`;
+
+const RelatedImageBox = styled.div`
+  @media screen and (max-width: 1000px) {
+    height: 500px;
+    width: 100%;
+    /* outline: 1px solid blue; */
+    overflow: hidden;
+  }
 `;

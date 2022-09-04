@@ -100,11 +100,11 @@ export default function Footer() {
       {/* ----------------------------------------구분선------------------------------------------ */}
       <hr></hr>
       <FooterLinksRow>
-        {FooterTitle2.map((title, i) => {
+        {FooterTitle.map((title, i) => {
           return (
             <FooterLinksColumn key={i}>
               <FooterLinksColumnTitle>{title}</FooterLinksColumnTitle>
-              {FooterList2[i].map((list, j) => {
+              {FooterList[i].map((list, j) => {
                 return (
                   <FooterLinksColumnList key={j}>{list}</FooterLinksColumnList>
                 );
