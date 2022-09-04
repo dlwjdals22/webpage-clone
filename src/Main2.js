@@ -193,7 +193,7 @@ const RelatedContents = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
-  width: 975px;
+  width: 1060px;
 `;
 
 const RelatedContentTitle = styled.div`
@@ -325,7 +325,7 @@ const Image = styled.img`
 
 const ImageBox = styled.div`
   @media screen and (max-width: 1700px) and (min-width: 1000px) {
-    width: 311px;
+    width: 340px;
     height: 190px;
     object-fit: cover;
   }
@@ -349,7 +349,7 @@ const Extra_Sticky = styled.div`
   }
 
   @media screen and (max-width: 1700px) and (min-width: 1000px) {
-    max-width: 975px;
+    max-width: 1060px;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 20px;
