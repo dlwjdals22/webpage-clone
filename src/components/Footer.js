@@ -161,6 +161,7 @@ const FooterLinksColumnList = styled.div`
   justify-content: center;
   margin: 7px 0;
   font-size: 18px;
+  text-align: center;
   &:hover {
     cursor: pointer;
     text-decoration: underline;
